@@ -5,6 +5,7 @@ const schema = require('./graphql/schema');
 const initDB = require('./database');
 const cors = require('@koa/cors');
 require('dotenv').config();
+initDB();
 
 const app = new Koa();
 
@@ -19,5 +20,3 @@ app.on('error', err => {
   log.error('server error', err)
 });
 app.use(cors());
-
-initDB();
